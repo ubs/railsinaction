@@ -1,3 +1,10 @@
 <% title(@project.name, "Projects") %>
 <h2><%= @project.name %></h2>
-<h1>"TextMate 2 - Projects - Ticketee"</h1>
+<div>
+  Welcome to the Project Page for <%= @project.name %>
+</div>
+
+<br />
+<%= link_to "Edit Project", edit_project_path(@project) %>
+
+<%= render 'index_link' %>

@@ -1,10 +1,13 @@
 <div style="line-height:25px;">
     <h3>List of All Projects</h3>
-    <ul>
+    <table border="0" style="border:1px dashed #DDD;">
       <% @projects.each do |project| %>
-          <li><%= link_to project.name, project %></li>
+          <tr>
+            <td><%= link_to project.name, project %></td>
+          </tr>
       <% end %>
     </ul>
+    </table>
 </div>
 
 <div>
