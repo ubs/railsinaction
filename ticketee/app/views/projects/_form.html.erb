@@ -1,5 +1,9 @@
 <%= form_for(@project) do |f| %>
-    <%= f.error_messages %>
+
+    <% if @project.errors.any? %>
+        <%= f.error_messages %>
+    <% end %>
+
     <p>
         <%= f.label :name %>
         <%= f.text_field :name %>
