@@ -1,2 +1,13 @@
-<%= link_to 'New Project', new_project_path %>
-    #bunch of text
+<div style="line-height:25px;">
+    <h3>List of All Projects</h3>
+    <ul>
+      <% @projects.each do |project| %>
+          <li><%= link_to project.name, project %></li>
+      <% end %>
+    </ul>
+</div>
+
+<div>
+  <br />
+  <%= link_to 'New Project', new_project_path %>
+</div>
