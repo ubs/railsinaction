@@ -1,0 +1,19 @@
+<%= form_for [@project, @ticket] do |f| %>
+
+    <% if @ticket.errors.any? %>
+        <%= f.error_messages %>
+    <% end %>
+
+    <p>
+      <%= f.label :title %><br/>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <br/>
+      <%= f.label :description %> <br />
+      <%= f.text_area :description %>
+    </p>
+
+    <%= f.submit %>
+<% end %>

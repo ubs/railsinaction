@@ -1,7 +1,8 @@
 <% title(@project.name, "Projects") %>
-<h2><%= @project.name %></h2>
+<h2><%= @project.name %> : <%= @ticket.title %></h2>
+
 <div>
-  Welcome to the Project Page for <%= @project.name %>
+  <%= @ticket.description %>
 </div>
 
 <br />
