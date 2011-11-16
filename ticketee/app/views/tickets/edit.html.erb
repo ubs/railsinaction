@@ -1,0 +1,7 @@
+<h2>Editing a Ticket in <%= @project.name %></h2>
+<%= render 'form' %>
+
+<div>
+  <br />
+  <%= link_to 'Cancel Edit', project_ticket_path(@ticket) %>
+</div>

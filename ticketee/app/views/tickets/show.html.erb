@@ -3,13 +3,15 @@
     <h2><%= @project.name %> : <%= @ticket.title %></h2>
 </div>
 
-<div>
+<div style="background:#EEF; padding:20px 10px; border-radius:5px;">
   <%= @ticket.description %>
 </div>
 
 <br />
-<%= link_to "Edit Project", edit_project_path(@project) %> |
-<%= link_to "Delete Project", @project, :method => :delete, :confirm => "Are you sure you wanna delete this project?" %> |
+<% @back_link_text = "Back to Project" %>
+<%= link_to @back_link_text, project_path(@project) %> |
+<%= link_to "Edit Ticket", [:edit, @project, @ticket] %> |
+<%= link_to "Delete Project", @project, :method => :delete, :confirm => "Are you sure you wanna delete this ticket?" %> |
 <%= link_to "New Ticket", new_project_ticket_path(@project) %> |
 
 <%= render 'projects/index_link' %>
