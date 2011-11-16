@@ -9,4 +9,15 @@
 <%= link_to "Delete Project", @project, :method => :delete, :confirm => "Are you sure you wanna delete this project?" %> |
 <%= link_to "New Ticket", new_project_ticket_path(@project) %> |
 
+
+<p>&nbsp;</p>
+<h3>List of Tickets under this Project</h3>
+<ul id="tickets" style="background:#EEF;">
+  <% @project.tickets.each do |ticket| %>
+      <li title="Click to view details">
+        #<%= ticket.id %> - <%= link_to ticket.title, [@project, ticket] %>
+      </li>
+  <% end %>
+</ul>
+
 <%= render 'index_link' %>
