@@ -175,12 +175,12 @@ menu, #ticket .state, .states {
   width: 75%;
 }
 
-#errorExplanation ul{
+#errorExplanation ul, #error_explanation ul {
     margin-left:30px;
     list-style-type:square;
 }
 
-#errorExplanation ul li{
+#errorExplanation ul li, #error_explanation ul li {
     background: #FBB;
     border:1px solid #F77;
     margin:3px 0;
