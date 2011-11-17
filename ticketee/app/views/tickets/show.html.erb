@@ -3,6 +3,8 @@
     <h2><%= @project.name %> : <%= @ticket.title %></h2>
 </div>
 
+<br /><small>Created by <%= @ticket.user.email %></small>
+
 <div style="background:#EEF; padding:20px 10px; border-radius:5px;">
   <%= @ticket.description %>
 </div>

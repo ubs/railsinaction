@@ -4,12 +4,16 @@ Feature: Viewing Tickets
   I want to see them on that project's page
 
   Background:
+    Given there are the following users:
+      | email              | password  |
+      | user@ticketee.com  | password  |
     Given there is a project called "TextMate 2"
-    And that project has a ticket:
-      |title          | description                 |
-      |Make it shiny! | Gradients! Starburst oh my! |
+    And "user@ticketee.com" has created a ticket for this project:
+      |title          | description                   |
+      |Make it shiny! | Gradients! Starbursts! oh my! |
+
     And there is a project called "Internet Explorer"
-    And that project has a ticket:
+    And "user@ticketee.com" has created a ticket for this project:
       |title                | description           |
       |Standards compliance | Isn't a joke.         |
 
@@ -22,7 +26,7 @@ Feature: Viewing Tickets
 
     When I follow "Make it shiny!"
     Then I should see "Make it shiny!" within "#ticket h2"
-    And I should see "Gradients! Starburst oh my!"
+    And I should see "Gradients! Starbursts! oh my!"
 
     When I follow "Home Page"
     And I follow "Internet Explorer"
