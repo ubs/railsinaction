@@ -22,11 +22,23 @@
 <% end %>
 
 <nav>
-<% if user_signed_in? %>
-  Signed in as <%= current_user.email %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %> | <%= link_to "Home", root_path %>
-<% end %>
+  <% if user_signed_in? %>
+      Signed in as <%= current_user.email %>
+  <% else %>
+      <%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %> | <%= link_to "Home", root_path %>
+  <% end %>
+
+  <span style="float: right;padding-right: 50px;">
+    <% if user_signed_in? %>
+        <%= link_to "Sign Out", root_path %>
+        <span>&nbsp;|&nbsp;</span>
+    <% end %>
+
+    <% admins_only do %>
+        <%= link_to "Admin", admin_root_path %>
+        <span>&nbsp;|&nbsp;</span>
+    <% end %>
+  </span>
 </nav>
 
 <%= yield %>

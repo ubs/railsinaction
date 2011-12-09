@@ -1,0 +1,19 @@
+<%= form_for [:admin, @user] do |f| %>
+
+    <% if @user.errors.any? %>
+        <%= f.error_messages %>
+    <% end %>
+
+    <p>
+      <%= f.label :email %><br/>
+      <%= f.text_field :email %>
+    </p>
+
+    <p>
+      <br/>
+      <%= f.label :password %> <br />
+      <%= f.password_field :password %>
+    </p>
+
+    <%= f.submit %>
+<% end %>
