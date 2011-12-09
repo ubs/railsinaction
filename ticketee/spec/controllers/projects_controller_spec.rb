@@ -1,22 +1,15 @@
 require 'spec_helper'
 
 describe ProjectsController do
-  let (:user) do
-    user = Factory(:user)
-    user.confirm!
-    user
-  end
-
-  let (:project) { Factory(:project) }
-
-  let admin_level_flash_alert = "You must be an admin to perform the requested action."
+  let(:user) { create_user! }
+  let(:project) { Factory(:project) }
 
   context "standard users" do
     it "cannot access the new action" do
       sign_in(:user, user)
       get :new
       response.should redirect_to(root_path)
-      flash[:alert].should eql(admin_level_flash_alert)
+      flash[:alert].should eql(you_must_be_admin_msg)
     end
 
     {
@@ -30,7 +23,7 @@ describe ProjectsController do
         sign_in(:user, user)
         send(method, action.dup, :id => project.id)
         response.should redirect_to(root_path)
-        flash[:alert].should eql(admin_level_flash_alert)
+        flash[:alert].should eql(you_must_be_admin_msg)
       end
     end
   end
